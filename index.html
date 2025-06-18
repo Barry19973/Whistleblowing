@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethics & Compliance Reporting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 2rem;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Anonymous Ethics Reporting Form</h2>
+    <form id="ethicsForm">
+      <label for="department">Department (optional)</label>
+      <input type="text" id="department" name="department" />
+
+      <label for="concern">Describe the concern *</label>
+      <textarea id="concern" name="concern" required rows="6"></textarea>
+
+      <label for="evidence">Attach a file (optional)</label>
+      <input type="file" id="evidence" name="evidence" />
+
+      <button type="submit">Submit Report</button>
+    </form>
+    <div id="confirmation" class="success-message" style="display: none;">
+      Thank you. Your anonymous report has been submitted.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('ethicsForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Simulate email submission - integrate with backend/email service in production
+      document.getElementById('ethicsForm').style.display = 'none';
+      document.getElementById('confirmation').style.display = 'block';
+      // In real use, send form data to a backend or email API (e.g., via Formspree, Netlify Forms, or AWS Lambda)
+    });
+  </script>
+</body>
+</html>
